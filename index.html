@@ -348,7 +348,10 @@ boot();
     -webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;}
   *{box-sizing:border-box;touch-action:manipulation;}
   #stage{position:absolute;top:0;left:0;right:0;bottom:0;
-    background:radial-gradient(120% 80% at 50% 0%,#141B30 0%,#10152300 55%,#0B0E17 100%),
+    background:
+      radial-gradient(85% 45% at 50% 108%,rgba(184,232,54,.10),rgba(184,232,54,0) 62%),
+      radial-gradient(70% 42% at 12% 6%,rgba(111,227,156,.07),rgba(111,227,156,0) 60%),
+      radial-gradient(120% 80% at 50% 0%,#141B30 0%,#10152300 55%,#0B0E17 100%),
       linear-gradient(180deg,#0F1420,#0B0E17);
     display:-webkit-box;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;
     -webkit-flex-direction:column;flex-direction:column;overflow:hidden;}
@@ -372,8 +375,10 @@ boot();
     border:2px solid #2A3252;border-radius:16px;padding:8px;
     box-shadow:0 10px 34px rgba(0,0,0,.55),inset 0 0 0 2px rgba(184,232,54,.05);}
   #grid{display:grid;grid-template-columns:repeat(6,1fr);grid-gap:5px;}
-  .cell{position:relative;border-radius:11px;background:#0E1322;
-    border:1px solid #1E2740;
+  .cell{position:relative;border-radius:11px;
+    background:-webkit-linear-gradient(top,#1B2338,#12182B);
+    border:1px solid #26314F;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.05),inset 0 -6px 12px rgba(0,0,0,.35);
     display:-webkit-box;display:flex;-webkit-box-align:center;align-items:center;
     -webkit-box-pack:center;justify-content:center;overflow:hidden;
     -webkit-transition:transform .12s ease;transition:transform .12s ease;}
@@ -420,35 +425,47 @@ boot();
   #fs{position:absolute;top:8px;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);
     background:#141A2B;border:1px solid #B8E836;color:#B8E836;font-weight:800;font-size:11px;
     padding:3px 10px;border-radius:999px;z-index:5;}
-  /* overlays */
+  /* overlays — bordered ACEBET PRESENTS card (house style, noir tuned) */
   .ov{position:absolute;top:0;left:0;right:0;bottom:0;z-index:10;
-    background:rgba(7,9,16,.86);display:-webkit-box;display:flex;-webkit-box-orient:vertical;
+    background:rgba(6,8,14,.82);display:-webkit-box;display:flex;-webkit-box-orient:vertical;
     -webkit-box-direction:normal;-webkit-flex-direction:column;flex-direction:column;
     -webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;
-    text-align:center;padding:24px;}
+    text-align:center;padding:20px;}
   .ov.hide{display:none;}
-  .plaque{font-size:13px;color:#8A93A6;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
-  .big{font-size:30px;font-weight:900;color:#EAF0F5;line-height:1.15;margin:2px 0;}
-  .big em{font-style:normal;color:#B8E836;}
-  .sub{font-size:12px;color:#8A93A6;margin-top:8px;}
-  .cbtn{margin-top:20px;border:0;cursor:pointer;color:#0F1420;font-weight:900;font-size:18px;
-    letter-spacing:.5px;padding:16px 34px;border-radius:16px;
+  .panel{width:100%;max-width:330px;padding:22px 22px 20px;border-radius:22px;
+    background:-webkit-linear-gradient(top,rgba(31,40,66,.98),rgba(19,25,42,.98));
+    border:1px solid rgba(184,232,54,.28);
+    box-shadow:0 18px 50px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.05),0 0 40px rgba(184,232,54,.08);
+    -webkit-animation:panelIn .5s cubic-bezier(.2,1.5,.35,1);animation:panelIn .5s cubic-bezier(.2,1.5,.35,1);}
+  @-webkit-keyframes panelIn{0%{-webkit-transform:translateY(16px) scale(.94);opacity:0}100%{-webkit-transform:none;opacity:1}}
+  @keyframes panelIn{0%{transform:translateY(16px) scale(.94);opacity:0}100%{transform:none;opacity:1}}
+  .gicon{width:56px;height:56px;margin:0 auto 8px;display:block;
+    filter:drop-shadow(0 4px 14px rgba(184,232,54,.35));}
+  .kicker{font-size:10px;font-weight:900;letter-spacing:.22em;color:#FFC24B;text-transform:uppercase;margin-bottom:8px;}
+  .plaque{font-size:12px;color:#9AA7BD;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px;}
+  .big{font-size:27px;font-weight:900;color:#EAF0F5;line-height:1.12;margin:2px 0;}
+  .big em{font-style:normal;
+    background:-webkit-linear-gradient(top,#CFF56B,#6FE39C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .sub{font-size:12px;color:#AEBACE;margin-top:9px;line-height:1.4;}
+  .fine{font-size:10.5px;color:#7B879C;margin-top:12px;}
+  .cbtn{margin-top:16px;border:0;cursor:pointer;color:#0F1420;font-weight:900;font-size:18px;
+    letter-spacing:.5px;padding:15px 30px;border-radius:14px;width:100%;
     background:-webkit-linear-gradient(top,#CFF56B,#6FE39C);border-bottom:5px solid #3FA877;
-    box-shadow:0 6px 20px rgba(111,227,156,.4);-webkit-animation:pulse 1.4s ease-in-out infinite;
+    box-shadow:0 6px 20px rgba(111,227,156,.45);-webkit-animation:pulse 1.4s ease-in-out infinite;
     animation:pulse 1.4s ease-in-out infinite;}
   .cbtn:active{-webkit-transform:translateY(2px);transform:translateY(2px);}
-  @-webkit-keyframes pulse{0%,100%{-webkit-transform:scale(1)}50%{-webkit-transform:scale(1.05)}}
-  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+  @-webkit-keyframes pulse{0%,100%{-webkit-transform:scale(1)}50%{-webkit-transform:scale(1.04)}}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
   #cvs{position:absolute;top:0;left:0;width:100%;height:100%;z-index:9;pointer-events:none;}
   #legal{font-size:9px;line-height:1.3;color:#5C647A;text-align:center;padding:3px 14px 7px;z-index:11;position:relative;}
-  .coinburst{font-size:46px;margin-bottom:6px;color:#FFC24B;text-shadow:0 0 20px rgba(255,194,75,.8);}
+  .coinburst{font-size:46px;margin-bottom:2px;color:#FFC24B;text-shadow:0 0 20px rgba(255,194,75,.8);}
   @media (prefers-reduced-motion: reduce){
-    .cbtn{-webkit-animation:none;animation:none;}
+    .cbtn,.panel{-webkit-animation:none;animation:none;}
     .cell.marked{-webkit-animation:none;animation:none;}
     .cell.reveal{-webkit-animation:none;animation:none;}
   }
 &lt;/style&gt;
-&lt;/head&gt;&lt;body&gt;&lt;script&gt;window.mraid={_l:{},getState:function(){return &quot;default&quot;},isViewable:function(){return true},addEventListener:function(e,f){this._l[e]=f},removeEventListener:function(){},open:function(u){window.open(u,&quot;_blank&quot;)}};&lt;/script&gt;&lt;div id=&quot;stage&quot;&gt;&lt;div id=&quot;hdr&quot;&gt;&lt;div class=&quot;brand&quot;&gt;&lt;svg viewBox=&quot;0 0 48 48&quot; width=&quot;34&quot; height=&quot;34&quot; aria-hidden=&quot;true&quot;&gt;&lt;defs&gt;&lt;linearGradient id=&quot;ag&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#CFF56B&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#4FD39A&quot;/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;&lt;rect x=&quot;2&quot; y=&quot;2&quot; width=&quot;44&quot; height=&quot;44&quot; rx=&quot;12&quot; fill=&quot;#161B2B&quot;/&gt;&lt;path d=&quot;M24 9l10 26h-6.2l-1.5-4.2h-4.6L20.2 35H14L24 9z&quot; fill=&quot;url(#ag)&quot;/&gt;&lt;path d=&quot;M24 20c-2.6 2.9-5 4.2-5 7.1 0 1.8 1.4 3 3 3 .5 0 1-.1 1.4-.4-.2 1-.7 1.9-1.4 2.6h4c-.7-.7-1.2-1.6-1.4-2.6.4.3.9.4 1.4.4 1.6 0 3-1.2 3-3 0-2.9-2.4-4.2-5-7.1z&quot; fill=&quot;#0F1420&quot;/&gt;&lt;/svg&gt;&lt;b&gt;AceBet&lt;/b&gt;&lt;/div&gt;&lt;div id=&quot;scpill&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;span id=&quot;scval&quot;&gt;5.00 SC&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;boardwrap&quot;&gt;&lt;div id=&quot;frame&quot;&gt;&lt;div id=&quot;fs&quot;&gt;3 FREE SPINS&lt;/div&gt;&lt;div id=&quot;grid&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;bar&quot;&gt;&lt;div class=&quot;stat&quot;&gt;&lt;span&gt;Balance&lt;/span&gt;&lt;b id=&quot;bal&quot;&gt;5.00&lt;/b&gt;&lt;/div&gt;&lt;button id=&quot;spin&quot;&gt;SPIN&lt;/button&gt;&lt;div class=&quot;stat&quot;&gt;&lt;span&gt;Win&lt;/span&gt;&lt;b class=&quot;win&quot; id=&quot;won&quot;&gt;0.00&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;legal&quot;&gt;Free-to-play social casino demo. Gameplay simulated. No purchase necessary. 18+. Void where prohibited. T&amp;amp;Cs apply.&lt;/div&gt;&lt;div id=&quot;toast&quot;&gt;&lt;/div&gt;&lt;canvas id=&quot;cvs&quot;&gt;&lt;/canvas&gt;&lt;div class=&quot;ov&quot; id=&quot;intro&quot;&gt;&lt;div class=&quot;plaque&quot;&gt;Le Ace Noir &amp;bull; Slots Noir&lt;/div&gt;&lt;div class=&quot;big&quot;&gt;3 FREE SPINS&lt;br&gt;unlock your &lt;em&gt;10 SC&lt;/em&gt;&lt;/div&gt;&lt;button class=&quot;cbtn&quot; id=&quot;playBtn&quot;&gt;TAP TO PLAY&lt;/button&gt;&lt;div class=&quot;sub&quot;&gt;Demo game for entertainment only.&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;ov hide&quot; id=&quot;end&quot;&gt;&lt;div class=&quot;coinburst&quot;&gt;&amp;#9670;&lt;/div&gt;&lt;div class=&quot;plaque&quot;&gt;Bonus unlocked&lt;/div&gt;&lt;div class=&quot;big&quot;&gt;You won &lt;em&gt;10 FREE SC&lt;/em&gt;&lt;/div&gt;&lt;div class=&quot;sub&quot;&gt;Plus a 200% welcome bonus &amp;amp; 2000+ games&lt;/div&gt;&lt;button class=&quot;cbtn&quot; id=&quot;claimBtn&quot;&gt;CLAIM 10 FREE SC&lt;/button&gt;&lt;div class=&quot;sub&quot;&gt;New players only. 18+. T&amp;amp;Cs apply.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; &lt;script&gt;
+&lt;/head&gt;&lt;body&gt;&lt;script&gt;window.mraid={_l:{},getState:function(){return &quot;default&quot;},isViewable:function(){return true},addEventListener:function(e,f){this._l[e]=f},removeEventListener:function(){},open:function(u){window.open(u,&quot;_blank&quot;)}};&lt;/script&gt;&lt;div id=&quot;stage&quot;&gt;&lt;div id=&quot;hdr&quot;&gt;&lt;div class=&quot;brand&quot;&gt;&lt;svg viewBox=&quot;0 0 48 48&quot; width=&quot;34&quot; height=&quot;34&quot; aria-hidden=&quot;true&quot;&gt;&lt;defs&gt;&lt;linearGradient id=&quot;ag&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#CFF56B&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#4FD39A&quot;/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;&lt;rect x=&quot;2&quot; y=&quot;2&quot; width=&quot;44&quot; height=&quot;44&quot; rx=&quot;12&quot; fill=&quot;#161B2B&quot;/&gt;&lt;path d=&quot;M24 9l10 26h-6.2l-1.5-4.2h-4.6L20.2 35H14L24 9z&quot; fill=&quot;url(#ag)&quot;/&gt;&lt;path d=&quot;M24 20c-2.6 2.9-5 4.2-5 7.1 0 1.8 1.4 3 3 3 .5 0 1-.1 1.4-.4-.2 1-.7 1.9-1.4 2.6h4c-.7-.7-1.2-1.6-1.4-2.6.4.3.9.4 1.4.4 1.6 0 3-1.2 3-3 0-2.9-2.4-4.2-5-7.1z&quot; fill=&quot;#0F1420&quot;/&gt;&lt;/svg&gt;&lt;b&gt;AceBet&lt;/b&gt;&lt;/div&gt;&lt;div id=&quot;scpill&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;span id=&quot;scval&quot;&gt;5.00 SC&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;boardwrap&quot;&gt;&lt;div id=&quot;frame&quot;&gt;&lt;div id=&quot;fs&quot;&gt;3 FREE SPINS&lt;/div&gt;&lt;div id=&quot;grid&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;bar&quot;&gt;&lt;div class=&quot;stat&quot;&gt;&lt;span&gt;Balance&lt;/span&gt;&lt;b id=&quot;bal&quot;&gt;5.00&lt;/b&gt;&lt;/div&gt;&lt;button id=&quot;spin&quot;&gt;SPIN&lt;/button&gt;&lt;div class=&quot;stat&quot;&gt;&lt;span&gt;Win&lt;/span&gt;&lt;b class=&quot;win&quot; id=&quot;won&quot;&gt;0.00&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;legal&quot;&gt;Free-to-play social casino demo. Gameplay simulated. No purchase necessary. 18+. Void where prohibited. T&amp;amp;Cs apply.&lt;/div&gt;&lt;div id=&quot;toast&quot;&gt;&lt;/div&gt;&lt;canvas id=&quot;cvs&quot;&gt;&lt;/canvas&gt;&lt;div class=&quot;ov&quot; id=&quot;intro&quot;&gt;&lt;div class=&quot;panel&quot;&gt;&lt;svg class=&quot;gicon&quot; viewBox=&quot;0 0 48 48&quot; aria-hidden=&quot;true&quot;&gt;&lt;defs&gt;&lt;linearGradient id=&quot;nspd&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#EDF2F8&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#9AA7BD&quot;/&gt;&lt;/linearGradient&gt;&lt;linearGradient id=&quot;nacc&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#CFF56B&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#4FD39A&quot;/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;&lt;path d=&quot;M24 7C24 7 9 18 9 26.6c0 4 3.2 6.9 6.8 6.9 1.5 0 2.8-.5 3.8-1.4-.4 2.6-1.8 4.8-4 6.5h16.8c-2.2-1.7-3.6-3.9-4-6.5 1 .9 2.3 1.4 3.8 1.4 3.6 0 6.8-2.9 6.8-6.9C39 18 24 7 24 7z&quot; fill=&quot;url(#nspd)&quot; stroke=&quot;rgba(184,232,54,.65)&quot; stroke-width=&quot;1.4&quot;/&gt;&lt;ellipse cx=&quot;18&quot; cy=&quot;18&quot; rx=&quot;4&quot; ry=&quot;2.6&quot; fill=&quot;rgba(255,255,255,.45)&quot;/&gt;&lt;path d=&quot;M24 39l3.4 4.4h-6.8z&quot; fill=&quot;url(#nacc)&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;kicker&quot;&gt;ACEBET PRESENTS&lt;/div&gt;&lt;div class=&quot;plaque&quot;&gt;Le Ace Noir&lt;/div&gt;&lt;div class=&quot;big&quot;&gt;3 FREE SPINS&lt;br&gt;unlock your &lt;em&gt;10 SC&lt;/em&gt;&lt;/div&gt;&lt;div class=&quot;sub&quot;&gt;Mark 4 squares, land the Rainbow Wild &amp;amp; flip hidden A-coin multipliers.&lt;/div&gt;&lt;button class=&quot;cbtn&quot; id=&quot;playBtn&quot;&gt;TAP TO PLAY&lt;/button&gt;&lt;div class=&quot;fine&quot;&gt;Demo game for entertainment only.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;ov hide&quot; id=&quot;end&quot;&gt;&lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;coinburst&quot;&gt;&amp;#9670;&lt;/div&gt;&lt;div class=&quot;kicker&quot;&gt;Bonus unlocked&lt;/div&gt;&lt;div class=&quot;big&quot;&gt;You won &lt;em&gt;10 FREE SC&lt;/em&gt;&lt;/div&gt;&lt;div class=&quot;sub&quot;&gt;Plus a 200% welcome bonus &amp;amp; 2000+ games&lt;/div&gt;&lt;button class=&quot;cbtn&quot; id=&quot;claimBtn&quot;&gt;CLAIM 10 FREE SC&lt;/button&gt;&lt;div class=&quot;fine&quot;&gt;New players only. 18+. T&amp;amp;Cs apply.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; &lt;script&gt;
 /* ===== AceBet — Le Ace Noir playable (noir slot, marked-square multiplier reveals) ===== */
 var STORE={ios:&#x27;https://apps.apple.com/us/app/acebet-social-casino-slots/id6761381402&#x27;,
            android:&#x27;https://play.google.com/store/apps/details?id=cc.acebet.social&#x27;};
@@ -714,7 +731,10 @@ boot();
     -webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;}
   *{box-sizing:border-box;touch-action:manipulation;}
   #stage{position:absolute;top:0;left:0;right:0;bottom:0;
-    background:radial-gradient(120% 80% at 50% 0%,#1B2440 0%,#141A2B 55%,#0F1420 100%);
+    background:
+      radial-gradient(85% 55% at 80% 6%,rgba(184,232,54,.16),rgba(184,232,54,0) 60%),
+      radial-gradient(80% 55% at 15% 94%,rgba(255,194,75,.14),rgba(255,194,75,0) 60%),
+      radial-gradient(120% 80% at 50% 0%,#1B2440 0%,#141A2B 55%,#0F1420 100%);
     display:-webkit-box;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;
     -webkit-flex-direction:column;flex-direction:column;overflow:hidden;}
   /* header */
@@ -781,34 +801,46 @@ boot();
   #fs{position:absolute;top:8px;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);
     background:#161B2B;border:1px solid #B8E836;color:#B8E836;font-weight:800;font-size:11px;
     padding:3px 10px;border-radius:999px;z-index:5;}
-  /* overlays */
+  /* overlays — bordered ACEBET PRESENTS card (house style) */
   .ov{position:absolute;top:0;left:0;right:0;bottom:0;z-index:10;
-    background:rgba(9,12,20,.82);display:-webkit-box;display:flex;-webkit-box-orient:vertical;
+    background:rgba(9,12,20,.74);display:-webkit-box;display:flex;-webkit-box-orient:vertical;
     -webkit-box-direction:normal;-webkit-flex-direction:column;flex-direction:column;
     -webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;
-    text-align:center;padding:24px;}
+    text-align:center;padding:20px;}
   .ov.hide{display:none;}
-  .plaque{font-size:13px;color:#8A93A6;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
-  .big{font-size:30px;font-weight:900;color:#EAF0F5;line-height:1.15;margin:2px 0;}
-  .big em{font-style:normal;color:#B8E836;}
-  .sub{font-size:12px;color:#8A93A6;margin-top:8px;}
-  .cbtn{margin-top:20px;border:0;cursor:pointer;color:#0F1420;font-weight:900;font-size:18px;
-    letter-spacing:.5px;padding:16px 34px;border-radius:16px;
+  .panel{width:100%;max-width:330px;padding:22px 22px 20px;border-radius:22px;
+    background:-webkit-linear-gradient(top,rgba(31,40,66,.98),rgba(19,25,42,.98));
+    border:1px solid rgba(184,232,54,.28);
+    box-shadow:0 18px 50px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.05),0 0 40px rgba(184,232,54,.08);
+    -webkit-animation:panelIn .5s cubic-bezier(.2,1.5,.35,1);animation:panelIn .5s cubic-bezier(.2,1.5,.35,1);}
+  @-webkit-keyframes panelIn{0%{-webkit-transform:translateY(16px) scale(.94);opacity:0}100%{-webkit-transform:none;opacity:1}}
+  @keyframes panelIn{0%{transform:translateY(16px) scale(.94);opacity:0}100%{transform:none;opacity:1}}
+  .gicon{width:56px;height:56px;margin:0 auto 8px;display:block;
+    filter:drop-shadow(0 4px 14px rgba(184,232,54,.35));}
+  .kicker{font-size:10px;font-weight:900;letter-spacing:.22em;color:#FFC24B;text-transform:uppercase;margin-bottom:8px;}
+  .plaque{font-size:12px;color:#9AA7BD;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px;}
+  .big{font-size:27px;font-weight:900;color:#EAF0F5;line-height:1.12;margin:2px 0;}
+  .big em{font-style:normal;
+    background:-webkit-linear-gradient(top,#CFF56B,#6FE39C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .sub{font-size:12px;color:#AEBACE;margin-top:9px;line-height:1.4;}
+  .fine{font-size:10.5px;color:#7B879C;margin-top:12px;}
+  .cbtn{margin-top:16px;border:0;cursor:pointer;color:#0F1420;font-weight:900;font-size:18px;
+    letter-spacing:.5px;padding:15px 30px;border-radius:14px;width:100%;
     background:-webkit-linear-gradient(top,#CFF56B,#6FE39C);border-bottom:5px solid #3FA877;
-    box-shadow:0 6px 20px rgba(111,227,156,.4);-webkit-animation:pulse 1.4s ease-in-out infinite;
+    box-shadow:0 6px 20px rgba(111,227,156,.45);-webkit-animation:pulse 1.4s ease-in-out infinite;
     animation:pulse 1.4s ease-in-out infinite;}
   .cbtn:active{-webkit-transform:translateY(2px);transform:translateY(2px);}
-  @-webkit-keyframes pulse{0%,100%{-webkit-transform:scale(1)}50%{-webkit-transform:scale(1.05)}}
-  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+  @-webkit-keyframes pulse{0%,100%{-webkit-transform:scale(1)}50%{-webkit-transform:scale(1.04)}}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
   #cvs{position:absolute;top:0;left:0;width:100%;height:100%;z-index:9;pointer-events:none;}
   #legal{font-size:9px;line-height:1.3;color:#5C647A;text-align:center;padding:3px 14px 7px;z-index:11;position:relative;}
-  .coinburst{font-size:46px;margin-bottom:6px;color:#FFC24B;text-shadow:0 0 20px rgba(255,194,75,.8);}
+  .coinburst{font-size:46px;margin-bottom:2px;color:#FFC24B;text-shadow:0 0 20px rgba(255,194,75,.8);}
   @media (prefers-reduced-motion: reduce){
-    .cbtn,#hint{-webkit-animation:none;animation:none;}
+    .cbtn,.panel{-webkit-animation:none;animation:none;}
     .box.bob svg{-webkit-animation:none;animation:none;}
   }
 &lt;/style&gt;
-&lt;/head&gt;&lt;body&gt;&lt;script&gt;window.mraid={_l:{},getState:function(){return &quot;default&quot;},isViewable:function(){return true},addEventListener:function(e,f){this._l[e]=f},removeEventListener:function(){},open:function(u){window.open(u,&quot;_blank&quot;)}};&lt;/script&gt;&lt;div id=&quot;stage&quot;&gt;&lt;div id=&quot;hdr&quot;&gt;&lt;div class=&quot;brand&quot;&gt;&lt;svg viewBox=&quot;0 0 48 48&quot; width=&quot;34&quot; height=&quot;34&quot; aria-hidden=&quot;true&quot;&gt;&lt;defs&gt;&lt;linearGradient id=&quot;ag&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#CFF56B&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#4FD39A&quot;/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;&lt;rect x=&quot;2&quot; y=&quot;2&quot; width=&quot;44&quot; height=&quot;44&quot; rx=&quot;12&quot; fill=&quot;#161B2B&quot;/&gt;&lt;path d=&quot;M24 9l10 26h-6.2l-1.5-4.2h-4.6L20.2 35H14L24 9z&quot; fill=&quot;url(#ag)&quot;/&gt;&lt;path d=&quot;M24 20c-2.6 2.9-5 4.2-5 7.1 0 1.8 1.4 3 3 3 .5 0 1-.1 1.4-.4-.2 1-.7 1.9-1.4 2.6h4c-.7-.7-1.2-1.6-1.4-2.6.4.3.9.4 1.4.4 1.6 0 3-1.2 3-3 0-2.9-2.4-4.2-5-7.1z&quot; fill=&quot;#0F1420&quot;/&gt;&lt;/svg&gt;&lt;b&gt;AceBet&lt;/b&gt;&lt;/div&gt;&lt;div id=&quot;scpill&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;span id=&quot;scval&quot;&gt;2.00 SC&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;boardwrap&quot;&gt;&lt;div id=&quot;fs&quot;&gt;PICK 1 OF 3&lt;/div&gt;&lt;div id=&quot;boxes&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;bar&quot;&gt;&lt;div class=&quot;stat&quot;&gt;&lt;span&gt;Balance&lt;/span&gt;&lt;b id=&quot;bal&quot;&gt;2.00&lt;/b&gt;&lt;/div&gt;&lt;button id=&quot;hint&quot;&gt;TAP A BOX&lt;/button&gt;&lt;div class=&quot;stat&quot;&gt;&lt;span&gt;Win&lt;/span&gt;&lt;b class=&quot;win&quot; id=&quot;won&quot;&gt;0.00&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;legal&quot;&gt;Free-to-play social casino demo. Gameplay simulated. No purchase necessary. 18+. Void where prohibited. T&amp;amp;Cs apply.&lt;/div&gt;&lt;div id=&quot;toast&quot;&gt;&lt;/div&gt;&lt;canvas id=&quot;cvs&quot;&gt;&lt;/canvas&gt;&lt;div class=&quot;ov&quot; id=&quot;intro&quot;&gt;&lt;div class=&quot;plaque&quot;&gt;Mystery Box &amp;bull; Pick &amp;amp; Win&lt;/div&gt;&lt;div class=&quot;big&quot;&gt;Pick a box to&lt;br&gt;reveal your &lt;em&gt;SC&lt;/em&gt;&lt;/div&gt;&lt;button class=&quot;cbtn&quot; id=&quot;playBtn&quot;&gt;TAP TO PLAY&lt;/button&gt;&lt;div class=&quot;sub&quot;&gt;Demo game for entertainment only.&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;ov hide&quot; id=&quot;end&quot;&gt;&lt;div class=&quot;coinburst&quot;&gt;&amp;#9670;&lt;/div&gt;&lt;div class=&quot;plaque&quot;&gt;Bonus unlocked&lt;/div&gt;&lt;div class=&quot;big&quot;&gt;You won &lt;em&gt;10 FREE SC&lt;/em&gt;&lt;/div&gt;&lt;div class=&quot;sub&quot;&gt;Plus a 200% welcome bonus &amp;amp; 2000+ games&lt;/div&gt;&lt;button class=&quot;cbtn&quot; id=&quot;claimBtn&quot;&gt;CLAIM 10 FREE SC&lt;/button&gt;&lt;div class=&quot;sub&quot;&gt;New players only. 18+. T&amp;amp;Cs apply.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; &lt;script&gt;
+&lt;/head&gt;&lt;body&gt;&lt;script&gt;window.mraid={_l:{},getState:function(){return &quot;default&quot;},isViewable:function(){return true},addEventListener:function(e,f){this._l[e]=f},removeEventListener:function(){},open:function(u){window.open(u,&quot;_blank&quot;)}};&lt;/script&gt;&lt;div id=&quot;stage&quot;&gt;&lt;div id=&quot;hdr&quot;&gt;&lt;div class=&quot;brand&quot;&gt;&lt;svg viewBox=&quot;0 0 48 48&quot; width=&quot;34&quot; height=&quot;34&quot; aria-hidden=&quot;true&quot;&gt;&lt;defs&gt;&lt;linearGradient id=&quot;ag&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#CFF56B&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#4FD39A&quot;/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;&lt;rect x=&quot;2&quot; y=&quot;2&quot; width=&quot;44&quot; height=&quot;44&quot; rx=&quot;12&quot; fill=&quot;#161B2B&quot;/&gt;&lt;path d=&quot;M24 9l10 26h-6.2l-1.5-4.2h-4.6L20.2 35H14L24 9z&quot; fill=&quot;url(#ag)&quot;/&gt;&lt;path d=&quot;M24 20c-2.6 2.9-5 4.2-5 7.1 0 1.8 1.4 3 3 3 .5 0 1-.1 1.4-.4-.2 1-.7 1.9-1.4 2.6h4c-.7-.7-1.2-1.6-1.4-2.6.4.3.9.4 1.4.4 1.6 0 3-1.2 3-3 0-2.9-2.4-4.2-5-7.1z&quot; fill=&quot;#0F1420&quot;/&gt;&lt;/svg&gt;&lt;b&gt;AceBet&lt;/b&gt;&lt;/div&gt;&lt;div id=&quot;scpill&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;span id=&quot;scval&quot;&gt;2.00 SC&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;boardwrap&quot;&gt;&lt;div id=&quot;fs&quot;&gt;PICK 1 OF 3&lt;/div&gt;&lt;div id=&quot;boxes&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;bar&quot;&gt;&lt;div class=&quot;stat&quot;&gt;&lt;span&gt;Balance&lt;/span&gt;&lt;b id=&quot;bal&quot;&gt;2.00&lt;/b&gt;&lt;/div&gt;&lt;button id=&quot;hint&quot;&gt;TAP A BOX&lt;/button&gt;&lt;div class=&quot;stat&quot;&gt;&lt;span&gt;Win&lt;/span&gt;&lt;b class=&quot;win&quot; id=&quot;won&quot;&gt;0.00&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;legal&quot;&gt;Free-to-play social casino demo. Gameplay simulated. No purchase necessary. 18+. Void where prohibited. T&amp;amp;Cs apply.&lt;/div&gt;&lt;div id=&quot;toast&quot;&gt;&lt;/div&gt;&lt;canvas id=&quot;cvs&quot;&gt;&lt;/canvas&gt;&lt;div class=&quot;ov&quot; id=&quot;intro&quot;&gt;&lt;div class=&quot;panel&quot;&gt;&lt;svg class=&quot;gicon&quot; viewBox=&quot;0 0 48 48&quot; aria-hidden=&quot;true&quot;&gt;&lt;defs&gt;&lt;linearGradient id=&quot;gilid&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#B8E836&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#6FE39C&quot;/&gt;&lt;/linearGradient&gt;&lt;linearGradient id=&quot;gibod&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#232C49&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#161B2B&quot;/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;&lt;rect x=&quot;9&quot; y=&quot;21&quot; width=&quot;30&quot; height=&quot;20&quot; rx=&quot;3&quot; fill=&quot;url(#gibod)&quot; stroke=&quot;#3A4468&quot; stroke-width=&quot;1.4&quot;/&gt;&lt;rect x=&quot;21.4&quot; y=&quot;21&quot; width=&quot;5.2&quot; height=&quot;20&quot; fill=&quot;#FFC24B&quot;/&gt;&lt;rect x=&quot;6.5&quot; y=&quot;14.5&quot; width=&quot;35&quot; height=&quot;9&quot; rx=&quot;3&quot; fill=&quot;url(#gilid)&quot; stroke=&quot;#3FA877&quot; stroke-width=&quot;1.4&quot;/&gt;&lt;rect x=&quot;21.4&quot; y=&quot;14.5&quot; width=&quot;5.2&quot; height=&quot;9&quot; fill=&quot;#FFC24B&quot;/&gt;&lt;path d=&quot;M24 14.5c-3.4-1.1-7.5-3.4-7.5-6 0-1.5 1.5-2.2 3-1.5 1.9.8 3.4 3.4 4.5 7.5z&quot; fill=&quot;#FFC24B&quot; stroke=&quot;#E8892A&quot; stroke-width=&quot;.6&quot;/&gt;&lt;path d=&quot;M24 14.5c3.4-1.1 7.5-3.4 7.5-6 0-1.5-1.5-2.2-3-1.5-1.9.8-3.4 3.4-4.5 7.5z&quot; fill=&quot;#FFC24B&quot; stroke=&quot;#E8892A&quot; stroke-width=&quot;.6&quot;/&gt;&lt;circle cx=&quot;24&quot; cy=&quot;12.2&quot; r=&quot;1.9&quot; fill=&quot;#FFD873&quot; stroke=&quot;#E8892A&quot; stroke-width=&quot;.6&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;kicker&quot;&gt;ACEBET PRESENTS&lt;/div&gt;&lt;div class=&quot;plaque&quot;&gt;Mystery Box&lt;/div&gt;&lt;div class=&quot;big&quot;&gt;Pick a box to&lt;br&gt;reveal your &lt;em&gt;SC&lt;/em&gt;&lt;/div&gt;&lt;div class=&quot;sub&quot;&gt;One tap. Three boxes. Your bonus is inside.&lt;/div&gt;&lt;button class=&quot;cbtn&quot; id=&quot;playBtn&quot;&gt;TAP TO PLAY&lt;/button&gt;&lt;div class=&quot;fine&quot;&gt;Demo game for entertainment only.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;ov hide&quot; id=&quot;end&quot;&gt;&lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;coinburst&quot;&gt;&amp;#9670;&lt;/div&gt;&lt;div class=&quot;kicker&quot;&gt;Bonus unlocked&lt;/div&gt;&lt;div class=&quot;big&quot;&gt;You won &lt;em&gt;10 FREE SC&lt;/em&gt;&lt;/div&gt;&lt;div class=&quot;sub&quot;&gt;Plus a 200% welcome bonus &amp;amp; 2000+ games&lt;/div&gt;&lt;button class=&quot;cbtn&quot; id=&quot;claimBtn&quot;&gt;CLAIM 10 FREE SC&lt;/button&gt;&lt;div class=&quot;fine&quot;&gt;New players only. 18+. T&amp;amp;Cs apply.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; &lt;script&gt;
 /* ===== AceBet — Mystery Box playable (1-tap pick-me) ===== */
 var STORE={ios:&#x27;https://apps.apple.com/us/app/acebet-social-casino-slots/id6761381402&#x27;,
            android:&#x27;https://play.google.com/store/apps/details?id=cc.acebet.social&#x27;};
@@ -817,47 +849,59 @@ function cta(){ if(typeof mraid!==&#x27;undefined&#x27;&amp;&amp;mraid.open){mra
 
 var reduce=window.matchMedia&amp;&amp;window.matchMedia(&#x27;(prefers-reduced-motion: reduce)&#x27;).matches;
 
-/* ---- box SVG: navy chest, lime-&gt;mint lid, gold ribbon + spade motif ---- */
+/* ---- box SVG: navy chest, bright lime-&gt;mint lid, gold ribbon + spade motif ---- */
 /* closed box */
 function boxClosed(idx){
-  return &#x27;&lt;svg viewBox=&quot;0 0 120 120&quot;&gt;&#x27;+
+  return &#x27;&lt;svg viewBox=&quot;0 0 120 128&quot;&gt;&#x27;+
     &#x27;&lt;defs&gt;&#x27;+
-      &#x27;&lt;linearGradient id=&quot;lid&#x27;+idx+&#x27;&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#CFF56B&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#4FD39A&quot;/&gt;&lt;/linearGradient&gt;&#x27;+
-      &#x27;&lt;linearGradient id=&quot;bod&#x27;+idx+&#x27;&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#232C49&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#161B2B&quot;/&gt;&lt;/linearGradient&gt;&#x27;+
-      &#x27;&lt;linearGradient id=&quot;rib&#x27;+idx+&#x27;&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#FFD873&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#FF9E2C&quot;/&gt;&lt;/linearGradient&gt;&#x27;+
+      &#x27;&lt;radialGradient id=&quot;hal&#x27;+idx+&#x27;&quot; cx=&quot;50%&quot; cy=&quot;48%&quot; r=&quot;55%&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;rgba(184,232,54,.35)&quot;/&gt;&lt;stop offset=&quot;60%&quot; stop-color=&quot;rgba(111,227,156,.12)&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;rgba(111,227,156,0)&quot;/&gt;&lt;/radialGradient&gt;&#x27;+
+      &#x27;&lt;linearGradient id=&quot;lid&#x27;+idx+&#x27;&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#D6FF6B&quot;/&gt;&lt;stop offset=&quot;.5&quot; stop-color=&quot;#B8E836&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#6FE39C&quot;/&gt;&lt;/linearGradient&gt;&#x27;+
+      &#x27;&lt;linearGradient id=&quot;bod&#x27;+idx+&#x27;&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#2C375C&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#171D30&quot;/&gt;&lt;/linearGradient&gt;&#x27;+
+      &#x27;&lt;linearGradient id=&quot;rib&#x27;+idx+&#x27;&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#FFDE86&quot;/&gt;&lt;stop offset=&quot;.5&quot; stop-color=&quot;#FFC24B&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#F0A62E&quot;/&gt;&lt;/linearGradient&gt;&#x27;+
     &#x27;&lt;/defs&gt;&#x27;+
+    /* soft glow so the box pops off the navy background */
+    &#x27;&lt;ellipse cx=&quot;60&quot; cy=&quot;72&quot; rx=&quot;56&quot; ry=&quot;52&quot; fill=&quot;url(#hal&#x27;+idx+&#x27;)&quot;/&gt;&#x27;+
     /* body */
-    &#x27;&lt;rect x=&quot;20&quot; y=&quot;52&quot; width=&quot;80&quot; height=&quot;52&quot; rx=&quot;7&quot; fill=&quot;url(#bod&#x27;+idx+&#x27;)&quot; stroke=&quot;#313A5C&quot; stroke-width=&quot;2&quot;/&gt;&#x27;+
+    &#x27;&lt;rect x=&quot;20&quot; y=&quot;54&quot; width=&quot;80&quot; height=&quot;52&quot; rx=&quot;8&quot; fill=&quot;url(#bod&#x27;+idx+&#x27;)&quot; stroke=&quot;#465280&quot; stroke-width=&quot;2&quot;/&gt;&#x27;+
+    /* body top highlight */
+    &#x27;&lt;rect x=&quot;23&quot; y=&quot;57&quot; width=&quot;74&quot; height=&quot;4&quot; rx=&quot;2&quot; fill=&quot;rgba(255,255,255,.10)&quot;/&gt;&#x27;+
     /* gold vertical ribbon on body */
-    &#x27;&lt;rect x=&quot;53&quot; y=&quot;52&quot; width=&quot;14&quot; height=&quot;52&quot; fill=&quot;url(#rib&#x27;+idx+&#x27;)&quot; opacity=&quot;.92&quot;/&gt;&#x27;+
+    &#x27;&lt;rect x=&quot;52&quot; y=&quot;54&quot; width=&quot;16&quot; height=&quot;52&quot; fill=&quot;url(#rib&#x27;+idx+&#x27;)&quot;/&gt;&#x27;+
+    &#x27;&lt;rect x=&quot;52&quot; y=&quot;54&quot; width=&quot;3&quot; height=&quot;52&quot; fill=&quot;rgba(255,255,255,.30)&quot;/&gt;&#x27;+
+    /* spade emboss on body */
+    &#x27;&lt;path d=&quot;M60 64c-4.2 4.2-7.8 6.7-7.8 11 0 2.8 2.2 4.7 4.7 4.7 .8 0 1.6-.2 2.2-.6-.3 1.6-1.1 3-2.2 4.1h6.2c-1.1-1.1-1.9-2.5-2.2-4.1.6.4 1.4.6 2.2.6 2.5 0 4.7-1.9 4.7-4.7 0-4.3-3.6-6.8-7.8-11z&quot; fill=&quot;#0F1420&quot; opacity=&quot;.28&quot;/&gt;&#x27;+
     /* lid */
-    &#x27;&lt;rect x=&quot;14&quot; y=&quot;36&quot; width=&quot;92&quot; height=&quot;24&quot; rx=&quot;6&quot; fill=&quot;url(#lid&#x27;+idx+&#x27;)&quot; stroke=&quot;#3FA877&quot; stroke-width=&quot;2&quot;/&gt;&#x27;+
+    &#x27;&lt;rect x=&quot;13&quot; y=&quot;36&quot; width=&quot;94&quot; height=&quot;26&quot; rx=&quot;7&quot; fill=&quot;url(#lid&#x27;+idx+&#x27;)&quot; stroke=&quot;#4FD39A&quot; stroke-width=&quot;2&quot;/&gt;&#x27;+
+    /* lid sheen */
+    &#x27;&lt;rect x=&quot;17&quot; y=&quot;39&quot; width=&quot;86&quot; height=&quot;5&quot; rx=&quot;2.5&quot; fill=&quot;rgba(255,255,255,.45)&quot;/&gt;&#x27;+
     /* gold ribbon across lid */
-    &#x27;&lt;rect x=&quot;53&quot; y=&quot;36&quot; width=&quot;14&quot; height=&quot;24&quot; fill=&quot;url(#rib&#x27;+idx+&#x27;)&quot; opacity=&quot;.92&quot;/&gt;&#x27;+
+    &#x27;&lt;rect x=&quot;52&quot; y=&quot;36&quot; width=&quot;16&quot; height=&quot;26&quot; fill=&quot;url(#rib&#x27;+idx+&#x27;)&quot;/&gt;&#x27;+
+    &#x27;&lt;rect x=&quot;52&quot; y=&quot;36&quot; width=&quot;3&quot; height=&quot;26&quot; fill=&quot;rgba(255,255,255,.35)&quot;/&gt;&#x27;+
     /* bow loops */
     &#x27;&lt;path d=&quot;M60 36c-9-3-20-9-20-16 0-4 4-6 8-4 5 2 9 9 12 20z&quot; fill=&quot;url(#rib&#x27;+idx+&#x27;)&quot; stroke=&quot;#E8892A&quot; stroke-width=&quot;1&quot;/&gt;&#x27;+
     &#x27;&lt;path d=&quot;M60 36c9-3 20-9 20-16 0-4-4-6-8-4-5 2-9 9-12 20z&quot; fill=&quot;url(#rib&#x27;+idx+&#x27;)&quot; stroke=&quot;#E8892A&quot; stroke-width=&quot;1&quot;/&gt;&#x27;+
-    &#x27;&lt;circle cx=&quot;60&quot; cy=&quot;30&quot; r=&quot;5&quot; fill=&quot;#FFC24B&quot; stroke=&quot;#E8892A&quot; stroke-width=&quot;1&quot;/&gt;&#x27;+
-    /* spade emboss on body */
-    &#x27;&lt;path d=&quot;M60 62c-4 4-7.5 6.4-7.5 10.6 0 2.7 2.1 4.5 4.5 4.5 .8 0 1.5-.2 2.1-.6-.3 1.5-1.1 2.9-2.1 3.9h6c-1-1-1.8-2.4-2.1-3.9.6.4 1.3.6 2.1.6 2.4 0 4.5-1.8 4.5-4.5 0-4.2-3.5-6.6-7.5-10.6z&quot; fill=&quot;#B8E836&quot; opacity=&quot;.55&quot;/&gt;&#x27;+
+    &#x27;&lt;circle cx=&quot;60&quot; cy=&quot;30&quot; r=&quot;5.4&quot; fill=&quot;#FFD873&quot; stroke=&quot;#E8892A&quot; stroke-width=&quot;1&quot;/&gt;&#x27;+
+    &#x27;&lt;circle cx=&quot;58&quot; cy=&quot;28&quot; r=&quot;1.6&quot; fill=&quot;rgba(255,255,255,.7)&quot;/&gt;&#x27;+
     &#x27;&lt;/svg&gt;&#x27;;
 }
 /* open box: lid tilted back, glow burst */
 function boxOpen(idx){
-  return &#x27;&lt;svg viewBox=&quot;0 0 120 120&quot;&gt;&#x27;+
+  return &#x27;&lt;svg viewBox=&quot;0 0 120 128&quot;&gt;&#x27;+
     &#x27;&lt;defs&gt;&#x27;+
-      &#x27;&lt;linearGradient id=&quot;olid&#x27;+idx+&#x27;&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#CFF56B&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#4FD39A&quot;/&gt;&lt;/linearGradient&gt;&#x27;+
-      &#x27;&lt;linearGradient id=&quot;obod&#x27;+idx+&#x27;&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#232C49&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#161B2B&quot;/&gt;&lt;/linearGradient&gt;&#x27;+
-      &#x27;&lt;radialGradient id=&quot;glo&#x27;+idx+&#x27;&quot; cx=&quot;50%&quot; cy=&quot;40%&quot; r=&quot;60%&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#FFF6D0&quot;/&gt;&lt;stop offset=&quot;45%&quot; stop-color=&quot;#FFC24B&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;rgba(255,194,75,0)&quot;/&gt;&lt;/radialGradient&gt;&#x27;+
+      &#x27;&lt;linearGradient id=&quot;olid&#x27;+idx+&#x27;&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#D6FF6B&quot;/&gt;&lt;stop offset=&quot;.5&quot; stop-color=&quot;#B8E836&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#6FE39C&quot;/&gt;&lt;/linearGradient&gt;&#x27;+
+      &#x27;&lt;linearGradient id=&quot;obod&#x27;+idx+&#x27;&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#2C375C&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#171D30&quot;/&gt;&lt;/linearGradient&gt;&#x27;+
+      &#x27;&lt;radialGradient id=&quot;glo&#x27;+idx+&#x27;&quot; cx=&quot;50%&quot; cy=&quot;42%&quot; r=&quot;62%&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#FFFBE6&quot;/&gt;&lt;stop offset=&quot;40%&quot; stop-color=&quot;#FFD873&quot;/&gt;&lt;stop offset=&quot;72%&quot; stop-color=&quot;rgba(255,194,75,.45)&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;rgba(255,194,75,0)&quot;/&gt;&lt;/radialGradient&gt;&#x27;+
     &#x27;&lt;/defs&gt;&#x27;+
-    /* glow */
-    &#x27;&lt;circle cx=&quot;60&quot; cy=&quot;52&quot; r=&quot;46&quot; fill=&quot;url(#glo&#x27;+idx+&#x27;)&quot;/&gt;&#x27;+
+    /* radiant gold glow */
+    &#x27;&lt;circle cx=&quot;60&quot; cy=&quot;50&quot; r=&quot;52&quot; fill=&quot;url(#glo&#x27;+idx+&#x27;)&quot;/&gt;&#x27;+
     /* body */
-    &#x27;&lt;rect x=&quot;20&quot; y=&quot;54&quot; width=&quot;80&quot; height=&quot;50&quot; rx=&quot;7&quot; fill=&quot;url(#obod&#x27;+idx+&#x27;)&quot; stroke=&quot;#313A5C&quot; stroke-width=&quot;2&quot;/&gt;&#x27;+
+    &#x27;&lt;rect x=&quot;20&quot; y=&quot;56&quot; width=&quot;80&quot; height=&quot;50&quot; rx=&quot;8&quot; fill=&quot;url(#obod&#x27;+idx+&#x27;)&quot; stroke=&quot;#465280&quot; stroke-width=&quot;2&quot;/&gt;&#x27;+
     /* inner rim */
-    &#x27;&lt;rect x=&quot;24&quot; y=&quot;52&quot; width=&quot;72&quot; height=&quot;10&quot; rx=&quot;4&quot; fill=&quot;#0F1420&quot;/&gt;&#x27;+
+    &#x27;&lt;rect x=&quot;24&quot; y=&quot;53&quot; width=&quot;72&quot; height=&quot;11&quot; rx=&quot;5&quot; fill=&quot;#0B0F1A&quot;/&gt;&#x27;+
+    &#x27;&lt;rect x=&quot;24&quot; y=&quot;53&quot; width=&quot;72&quot; height=&quot;4&quot; rx=&quot;2&quot; fill=&quot;rgba(255,216,115,.5)&quot;/&gt;&#x27;+
     /* tilted-back lid */
-    &#x27;&lt;g transform=&quot;rotate(-24 30 46)&quot;&gt;&lt;rect x=&quot;12&quot; y=&quot;30&quot; width=&quot;92&quot; height=&quot;22&quot; rx=&quot;6&quot; fill=&quot;url(#olid&#x27;+idx+&#x27;)&quot; stroke=&quot;#3FA877&quot; stroke-width=&quot;2&quot;/&gt;&lt;/g&gt;&#x27;+
+    &#x27;&lt;g transform=&quot;rotate(-24 30 46)&quot;&gt;&lt;rect x=&quot;12&quot; y=&quot;28&quot; width=&quot;92&quot; height=&quot;24&quot; rx=&quot;7&quot; fill=&quot;url(#olid&#x27;+idx+&#x27;)&quot; stroke=&quot;#4FD39A&quot; stroke-width=&quot;2&quot;/&gt;&#x27;+
+      &#x27;&lt;rect x=&quot;16&quot; y=&quot;31&quot; width=&quot;84&quot; height=&quot;5&quot; rx=&quot;2.5&quot; fill=&quot;rgba(255,255,255,.45)&quot;/&gt;&lt;/g&gt;&#x27;+
     &#x27;&lt;/svg&gt;&#x27;;
 }
 
@@ -1036,7 +1080,10 @@ boot();
     -webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;}
   *{box-sizing:border-box;touch-action:manipulation;}
   #stage{position:absolute;top:0;left:0;right:0;bottom:0;
-    background:radial-gradient(120% 80% at 50% 0%,#1B2440 0%,#141A2B 55%,#0F1420 100%);
+    background:
+      radial-gradient(85% 55% at 82% 6%,rgba(255,194,75,.16),rgba(255,194,75,0) 60%),
+      radial-gradient(80% 55% at 12% 94%,rgba(184,232,54,.16),rgba(184,232,54,0) 60%),
+      radial-gradient(120% 80% at 50% 0%,#1B2440 0%,#141A2B 55%,#0F1420 100%);
     display:-webkit-box;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;
     -webkit-flex-direction:column;flex-direction:column;overflow:hidden;}
   /* header */
@@ -1096,32 +1143,44 @@ boot();
   #fs{position:absolute;top:8px;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);
     background:#161B2B;border:1px solid #B8E836;color:#B8E836;font-weight:800;font-size:11px;
     padding:3px 10px;border-radius:999px;z-index:5;}
-  /* overlays */
+  /* overlays — bordered ACEBET PRESENTS card (house style) */
   .ov{position:absolute;top:0;left:0;right:0;bottom:0;z-index:10;
-    background:rgba(9,12,20,.82);display:-webkit-box;display:flex;-webkit-box-orient:vertical;
+    background:rgba(9,12,20,.74);display:-webkit-box;display:flex;-webkit-box-orient:vertical;
     -webkit-box-direction:normal;-webkit-flex-direction:column;flex-direction:column;
     -webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;
-    text-align:center;padding:24px;}
+    text-align:center;padding:20px;}
   .ov.hide{display:none;}
-  .plaque{font-size:13px;color:#8A93A6;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
-  .big{font-size:30px;font-weight:900;color:#EAF0F5;line-height:1.15;margin:2px 0;}
-  .big em{font-style:normal;color:#B8E836;}
-  .sub{font-size:12px;color:#8A93A6;margin-top:8px;}
-  .cbtn{margin-top:20px;border:0;cursor:pointer;color:#0F1420;font-weight:900;font-size:18px;
-    letter-spacing:.5px;padding:16px 34px;border-radius:16px;
+  .panel{width:100%;max-width:330px;padding:22px 22px 20px;border-radius:22px;
+    background:-webkit-linear-gradient(top,rgba(31,40,66,.98),rgba(19,25,42,.98));
+    border:1px solid rgba(184,232,54,.28);
+    box-shadow:0 18px 50px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.05),0 0 40px rgba(184,232,54,.08);
+    -webkit-animation:panelIn .5s cubic-bezier(.2,1.5,.35,1);animation:panelIn .5s cubic-bezier(.2,1.5,.35,1);}
+  @-webkit-keyframes panelIn{0%{-webkit-transform:translateY(16px) scale(.94);opacity:0}100%{-webkit-transform:none;opacity:1}}
+  @keyframes panelIn{0%{transform:translateY(16px) scale(.94);opacity:0}100%{transform:none;opacity:1}}
+  .gicon{width:56px;height:56px;margin:0 auto 8px;display:block;
+    filter:drop-shadow(0 4px 14px rgba(184,232,54,.35));}
+  .kicker{font-size:10px;font-weight:900;letter-spacing:.22em;color:#FFC24B;text-transform:uppercase;margin-bottom:8px;}
+  .plaque{font-size:12px;color:#9AA7BD;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px;}
+  .big{font-size:27px;font-weight:900;color:#EAF0F5;line-height:1.12;margin:2px 0;}
+  .big em{font-style:normal;
+    background:-webkit-linear-gradient(top,#CFF56B,#6FE39C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .sub{font-size:12px;color:#AEBACE;margin-top:9px;line-height:1.4;}
+  .fine{font-size:10.5px;color:#7B879C;margin-top:12px;}
+  .cbtn{margin-top:16px;border:0;cursor:pointer;color:#0F1420;font-weight:900;font-size:18px;
+    letter-spacing:.5px;padding:15px 30px;border-radius:14px;width:100%;
     background:-webkit-linear-gradient(top,#CFF56B,#6FE39C);border-bottom:5px solid #3FA877;
-    box-shadow:0 6px 20px rgba(111,227,156,.4);-webkit-animation:pulse 1.4s ease-in-out infinite;
+    box-shadow:0 6px 20px rgba(111,227,156,.45);-webkit-animation:pulse 1.4s ease-in-out infinite;
     animation:pulse 1.4s ease-in-out infinite;}
   .cbtn:active{-webkit-transform:translateY(2px);transform:translateY(2px);}
-  @-webkit-keyframes pulse{0%,100%{-webkit-transform:scale(1)}50%{-webkit-transform:scale(1.05)}}
-  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+  @-webkit-keyframes pulse{0%,100%{-webkit-transform:scale(1)}50%{-webkit-transform:scale(1.04)}}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
   #cvs{position:absolute;top:0;left:0;width:100%;height:100%;z-index:9;pointer-events:none;}
   #legal{font-size:9px;line-height:1.3;color:#5C647A;text-align:center;padding:3px 14px 7px;z-index:11;position:relative;}
-  .coinburst{font-size:46px;margin-bottom:6px;color:#FFC24B;text-shadow:0 0 20px rgba(255,194,75,.8);}
-  @media (prefers-reduced-motion: reduce){.cbtn{-webkit-animation:none;animation:none;}
+  .coinburst{font-size:46px;margin-bottom:2px;color:#FFC24B;text-shadow:0 0 20px rgba(255,194,75,.8);}
+  @media (prefers-reduced-motion: reduce){.cbtn,.panel{-webkit-animation:none;animation:none;}
     #wheelspin.spin{-webkit-transition:none;transition:none;}}
 &lt;/style&gt;
-&lt;/head&gt;&lt;body&gt;&lt;script&gt;window.mraid={_l:{},getState:function(){return &quot;default&quot;},isViewable:function(){return true},addEventListener:function(e,f){this._l[e]=f},removeEventListener:function(){},open:function(u){window.open(u,&quot;_blank&quot;)}};&lt;/script&gt;&lt;div id=&quot;stage&quot;&gt;&lt;div id=&quot;hdr&quot;&gt;&lt;div class=&quot;brand&quot;&gt;&lt;svg viewBox=&quot;0 0 48 48&quot; width=&quot;34&quot; height=&quot;34&quot; aria-hidden=&quot;true&quot;&gt;&lt;defs&gt;&lt;linearGradient id=&quot;ag&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#CFF56B&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#4FD39A&quot;/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;&lt;rect x=&quot;2&quot; y=&quot;2&quot; width=&quot;44&quot; height=&quot;44&quot; rx=&quot;12&quot; fill=&quot;#161B2B&quot;/&gt;&lt;path d=&quot;M24 9l10 26h-6.2l-1.5-4.2h-4.6L20.2 35H14L24 9z&quot; fill=&quot;url(#ag)&quot;/&gt;&lt;path d=&quot;M24 20c-2.6 2.9-5 4.2-5 7.1 0 1.8 1.4 3 3 3 .5 0 1-.1 1.4-.4-.2 1-.7 1.9-1.4 2.6h4c-.7-.7-1.2-1.6-1.4-2.6.4.3.9.4 1.4.4 1.6 0 3-1.2 3-3 0-2.9-2.4-4.2-5-7.1z&quot; fill=&quot;#0F1420&quot;/&gt;&lt;/svg&gt;&lt;b&gt;AceBet&lt;/b&gt;&lt;/div&gt;&lt;div id=&quot;scpill&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;span id=&quot;scval&quot;&gt;2.00 SC&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;boardwrap&quot;&gt;&lt;div id=&quot;fs&quot;&gt;1 FREE SPIN&lt;/div&gt;&lt;div id=&quot;wheel&quot;&gt;&lt;div id=&quot;wheelspin&quot;&gt;&lt;/div&gt;&lt;div id=&quot;pointer&quot;&gt;&lt;/div&gt;&lt;div id=&quot;hub&quot;&gt;&lt;svg viewBox=&quot;0 0 48 48&quot; aria-hidden=&quot;true&quot;&gt;&lt;defs&gt;&lt;linearGradient id=&quot;hg&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#CFF56B&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#4FD39A&quot;/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;&lt;path d=&quot;M24 9l10 26h-6.2l-1.5-4.2h-4.6L20.2 35H14L24 9z&quot; fill=&quot;url(#hg)&quot;/&gt;&lt;path d=&quot;M24 20c-2.6 2.9-5 4.2-5 7.1 0 1.8 1.4 3 3 3 .5 0 1-.1 1.4-.4-.2 1-.7 1.9-1.4 2.6h4c-.7-.7-1.2-1.6-1.4-2.6.4.3.9.4 1.4.4 1.6 0 3-1.2 3-3 0-2.9-2.4-4.2-5-7.1z&quot; fill=&quot;#0F1420&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;bar&quot;&gt;&lt;div class=&quot;stat&quot;&gt;&lt;span&gt;Balance&lt;/span&gt;&lt;b id=&quot;bal&quot;&gt;2.00&lt;/b&gt;&lt;/div&gt;&lt;button id=&quot;spin&quot;&gt;SPIN&lt;/button&gt;&lt;div class=&quot;stat&quot;&gt;&lt;span&gt;Win&lt;/span&gt;&lt;b class=&quot;win&quot; id=&quot;won&quot;&gt;0.00&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;legal&quot;&gt;Free-to-play social casino demo. Gameplay simulated. No purchase necessary. 18+. Void where prohibited. T&amp;amp;Cs apply.&lt;/div&gt;&lt;div id=&quot;toast&quot;&gt;&lt;/div&gt;&lt;canvas id=&quot;cvs&quot;&gt;&lt;/canvas&gt;&lt;div class=&quot;ov&quot; id=&quot;intro&quot;&gt;&lt;div class=&quot;plaque&quot;&gt;Bonus Wheel &amp;bull; 1 Free Spin&lt;/div&gt;&lt;div class=&quot;big&quot;&gt;Spin the wheel to&lt;br&gt;win your &lt;em&gt;10 SC&lt;/em&gt;&lt;/div&gt;&lt;button class=&quot;cbtn&quot; id=&quot;playBtn&quot;&gt;TAP TO SPIN&lt;/button&gt;&lt;div class=&quot;sub&quot;&gt;Demo game for entertainment only.&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;ov hide&quot; id=&quot;end&quot;&gt;&lt;div class=&quot;coinburst&quot;&gt;&amp;#9670;&lt;/div&gt;&lt;div class=&quot;plaque&quot;&gt;Bonus unlocked&lt;/div&gt;&lt;div class=&quot;big&quot;&gt;BONUS! You won &lt;em&gt;10 FREE SC&lt;/em&gt;&lt;/div&gt;&lt;div class=&quot;sub&quot;&gt;Plus a 200% welcome bonus &amp;amp; 2000+ games&lt;/div&gt;&lt;button class=&quot;cbtn&quot; id=&quot;claimBtn&quot;&gt;CLAIM 10 FREE SC&lt;/button&gt;&lt;div class=&quot;sub&quot;&gt;Free-to-play social casino demo. Gameplay simulated. No purchase necessary. 18+. Void where prohibited. T&amp;amp;Cs apply.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; &lt;script&gt;
+&lt;/head&gt;&lt;body&gt;&lt;script&gt;window.mraid={_l:{},getState:function(){return &quot;default&quot;},isViewable:function(){return true},addEventListener:function(e,f){this._l[e]=f},removeEventListener:function(){},open:function(u){window.open(u,&quot;_blank&quot;)}};&lt;/script&gt;&lt;div id=&quot;stage&quot;&gt;&lt;div id=&quot;hdr&quot;&gt;&lt;div class=&quot;brand&quot;&gt;&lt;svg viewBox=&quot;0 0 48 48&quot; width=&quot;34&quot; height=&quot;34&quot; aria-hidden=&quot;true&quot;&gt;&lt;defs&gt;&lt;linearGradient id=&quot;ag&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#CFF56B&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#4FD39A&quot;/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;&lt;rect x=&quot;2&quot; y=&quot;2&quot; width=&quot;44&quot; height=&quot;44&quot; rx=&quot;12&quot; fill=&quot;#161B2B&quot;/&gt;&lt;path d=&quot;M24 9l10 26h-6.2l-1.5-4.2h-4.6L20.2 35H14L24 9z&quot; fill=&quot;url(#ag)&quot;/&gt;&lt;path d=&quot;M24 20c-2.6 2.9-5 4.2-5 7.1 0 1.8 1.4 3 3 3 .5 0 1-.1 1.4-.4-.2 1-.7 1.9-1.4 2.6h4c-.7-.7-1.2-1.6-1.4-2.6.4.3.9.4 1.4.4 1.6 0 3-1.2 3-3 0-2.9-2.4-4.2-5-7.1z&quot; fill=&quot;#0F1420&quot;/&gt;&lt;/svg&gt;&lt;b&gt;AceBet&lt;/b&gt;&lt;/div&gt;&lt;div id=&quot;scpill&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;span id=&quot;scval&quot;&gt;2.00 SC&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;boardwrap&quot;&gt;&lt;div id=&quot;fs&quot;&gt;1 FREE SPIN&lt;/div&gt;&lt;div id=&quot;wheel&quot;&gt;&lt;div id=&quot;wheelspin&quot;&gt;&lt;/div&gt;&lt;div id=&quot;pointer&quot;&gt;&lt;/div&gt;&lt;div id=&quot;hub&quot;&gt;&lt;svg viewBox=&quot;0 0 48 48&quot; aria-hidden=&quot;true&quot;&gt;&lt;defs&gt;&lt;linearGradient id=&quot;hg&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#CFF56B&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#4FD39A&quot;/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;&lt;path d=&quot;M24 9l10 26h-6.2l-1.5-4.2h-4.6L20.2 35H14L24 9z&quot; fill=&quot;url(#hg)&quot;/&gt;&lt;path d=&quot;M24 20c-2.6 2.9-5 4.2-5 7.1 0 1.8 1.4 3 3 3 .5 0 1-.1 1.4-.4-.2 1-.7 1.9-1.4 2.6h4c-.7-.7-1.2-1.6-1.4-2.6.4.3.9.4 1.4.4 1.6 0 3-1.2 3-3 0-2.9-2.4-4.2-5-7.1z&quot; fill=&quot;#0F1420&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;bar&quot;&gt;&lt;div class=&quot;stat&quot;&gt;&lt;span&gt;Balance&lt;/span&gt;&lt;b id=&quot;bal&quot;&gt;2.00&lt;/b&gt;&lt;/div&gt;&lt;button id=&quot;spin&quot;&gt;SPIN&lt;/button&gt;&lt;div class=&quot;stat&quot;&gt;&lt;span&gt;Win&lt;/span&gt;&lt;b class=&quot;win&quot; id=&quot;won&quot;&gt;0.00&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;legal&quot;&gt;Free-to-play social casino demo. Gameplay simulated. No purchase necessary. 18+. Void where prohibited. T&amp;amp;Cs apply.&lt;/div&gt;&lt;div id=&quot;toast&quot;&gt;&lt;/div&gt;&lt;canvas id=&quot;cvs&quot;&gt;&lt;/canvas&gt;&lt;div class=&quot;ov&quot; id=&quot;intro&quot;&gt;&lt;div class=&quot;panel&quot;&gt;&lt;svg class=&quot;gicon&quot; viewBox=&quot;0 0 48 48&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M22 6h4l-2 4.5z&quot; fill=&quot;#E8465C&quot;/&gt;&lt;path d=&quot;M24 24L24 9A15 15 0 0 1 37 16.5Z&quot; fill=&quot;#B8E836&quot;/&gt;&lt;path d=&quot;M24 24L37 16.5A15 15 0 0 1 37 31.5Z&quot; fill=&quot;#FFC24B&quot;/&gt;&lt;path d=&quot;M24 24L37 31.5A15 15 0 0 1 24 39Z&quot; fill=&quot;#6FE39C&quot;/&gt;&lt;path d=&quot;M24 24L24 39A15 15 0 0 1 11 31.5Z&quot; fill=&quot;#FF5CA8&quot;/&gt;&lt;path d=&quot;M24 24L11 31.5A15 15 0 0 1 11 16.5Z&quot; fill=&quot;#8E5BE8&quot;/&gt;&lt;path d=&quot;M24 24L11 16.5A15 15 0 0 1 24 9Z&quot; fill=&quot;#FFC24B&quot;/&gt;&lt;circle cx=&quot;24&quot; cy=&quot;24&quot; r=&quot;15&quot; fill=&quot;none&quot; stroke=&quot;#FFC24B&quot; stroke-width=&quot;2&quot;/&gt;&lt;circle cx=&quot;24&quot; cy=&quot;24&quot; r=&quot;5.6&quot; fill=&quot;#161B2B&quot; stroke=&quot;#FFC24B&quot; stroke-width=&quot;1.6&quot;/&gt;&lt;path d=&quot;M24 20.4l2.3 5.4h-4.6z&quot; fill=&quot;#FFC24B&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;kicker&quot;&gt;ACEBET PRESENTS&lt;/div&gt;&lt;div class=&quot;plaque&quot;&gt;Bonus Wheel&lt;/div&gt;&lt;div class=&quot;big&quot;&gt;1 FREE SPIN&lt;br&gt;win your &lt;em&gt;10 SC&lt;/em&gt;&lt;/div&gt;&lt;div class=&quot;sub&quot;&gt;One tap spins the wheel straight to the jackpot.&lt;/div&gt;&lt;button class=&quot;cbtn&quot; id=&quot;playBtn&quot;&gt;TAP TO SPIN&lt;/button&gt;&lt;div class=&quot;fine&quot;&gt;Demo game for entertainment only.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;ov hide&quot; id=&quot;end&quot;&gt;&lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;coinburst&quot;&gt;&amp;#9670;&lt;/div&gt;&lt;div class=&quot;kicker&quot;&gt;Bonus unlocked&lt;/div&gt;&lt;div class=&quot;big&quot;&gt;You won &lt;em&gt;10 FREE SC&lt;/em&gt;&lt;/div&gt;&lt;div class=&quot;sub&quot;&gt;Plus a 200% welcome bonus &amp;amp; 2000+ games&lt;/div&gt;&lt;button class=&quot;cbtn&quot; id=&quot;claimBtn&quot;&gt;CLAIM 10 FREE SC&lt;/button&gt;&lt;div class=&quot;fine&quot;&gt;Free-to-play social casino demo. Gameplay simulated. No purchase necessary. 18+. Void where prohibited. T&amp;amp;Cs apply.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; &lt;script&gt;
 /* ===== AceBet — Bonus Wheel playable (one-tap scripted wheel spin) ===== */
 var STORE={ios:&#x27;https://apps.apple.com/us/app/acebet-social-casino-slots/id6761381402&#x27;,
            android:&#x27;https://play.google.com/store/apps/details?id=cc.acebet.social&#x27;};
@@ -1133,34 +1192,49 @@ var reduce=window.matchMedia&amp;&amp;window.matchMedia(&#x27;(prefers-reduced-m
 /* ---- wheel definition: 8 segments, alternating brand colors ---- */
 var SEG=8, SEGDEG=360/SEG, JACKPOT_IDX=3, SPINS=5;
 var LABELS=[&#x27;2 SC&#x27;,&#x27;5 SC&#x27;,&#x27;20 SC&#x27;,&#x27;JACKPOT 10 SC&#x27;,&#x27;3 SC&#x27;,&#x27;50 SC&#x27;,&#x27;5 SC&#x27;,&#x27;15 SC&#x27;];
-var COLORS=[&#x27;#B8E836&#x27;,&#x27;#6FE39C&#x27;,&#x27;#1E2438&#x27;,&#x27;#FFC24B&#x27;]; /* lime, mint, navy, gold */
+/* bright, clearly alternating AceBet palette (no muddy tones).
+   index 3 (JACKPOT) is the brightest lime and gets a glow. */
+var COLORS=[&#x27;#B8E836&#x27;,&#x27;#8E5BE8&#x27;,&#x27;#FFC24B&#x27;,&#x27;#B8E836&#x27;,&#x27;#FF5CA8&#x27;,&#x27;#6FE39C&#x27;,&#x27;#FFC24B&#x27;,&#x27;#8E5BE8&#x27;];
 function f1(n){return Math.round(n*100)/100;}
 
 function buildWheel(){
   var cx=100,cy=100,r=94,i,svg=&#x27;&lt;svg viewBox=&quot;0 0 200 200&quot;&gt;&#x27;;
+  svg+=&#x27;&lt;defs&gt;&lt;radialGradient id=&quot;jkg&quot; cx=&quot;50%&quot; cy=&quot;50%&quot; r=&quot;60%&quot;&gt;&#x27;+
+       &#x27;&lt;stop offset=&quot;0&quot; stop-color=&quot;#F1FF8A&quot;/&gt;&lt;stop offset=&quot;60%&quot; stop-color=&quot;#B8E836&quot;/&gt;&#x27;+
+       &#x27;&lt;stop offset=&quot;100%&quot; stop-color=&quot;#8BC81E&quot;/&gt;&lt;/radialGradient&gt;&#x27;+
+       &#x27;&lt;filter id=&quot;jglow&quot; x=&quot;-40%&quot; y=&quot;-40%&quot; width=&quot;180%&quot; height=&quot;180%&quot;&gt;&#x27;+
+       &#x27;&lt;feGaussianBlur stdDeviation=&quot;3.2&quot; result=&quot;b&quot;/&gt;&#x27;+
+       &#x27;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&#x27;;
   for(i=0;i&lt;SEG;i++){
     var a0=(i*SEGDEG-SEGDEG/2)*Math.PI/180;
     var a1=(i*SEGDEG+SEGDEG/2)*Math.PI/180;
     var x0=cx+r*Math.sin(a0), y0=cy-r*Math.cos(a0);
     var x1=cx+r*Math.sin(a1), y1=cy-r*Math.cos(a1);
-    svg+=&#x27;&lt;path d=&quot;M&#x27;+cx+&#x27; &#x27;+cy+&#x27; L&#x27;+f1(x0)+&#x27; &#x27;+f1(y0)+&#x27; A&#x27;+r+&#x27; &#x27;+r+&#x27; 0 0 1 &#x27;+f1(x1)+&#x27; &#x27;+f1(y1)+&#x27; Z&quot; fill=&quot;&#x27;+COLORS[i%4]+&#x27;&quot; stroke=&quot;#0F1420&quot; stroke-width=&quot;1.4&quot;/&gt;&#x27;;
+    var isJ=(i===JACKPOT_IDX);
+    var fill=isJ?&#x27;url(#jkg)&#x27;:COLORS[i];
+    var sc=isJ?&#x27;#FFC24B&#x27;:&#x27;#0F1420&#x27;;
+    var sw=isJ?&#x27;2.4&#x27;:&#x27;1.4&#x27;;
+    var flt=isJ?&#x27; filter=&quot;url(#jglow)&quot;&#x27;:&#x27;&#x27;;
+    svg+=&#x27;&lt;path d=&quot;M&#x27;+cx+&#x27; &#x27;+cy+&#x27; L&#x27;+f1(x0)+&#x27; &#x27;+f1(y0)+&#x27; A&#x27;+r+&#x27; &#x27;+r+&#x27; 0 0 1 &#x27;+f1(x1)+&#x27; &#x27;+f1(y1)+&#x27; Z&quot; fill=&quot;&#x27;+fill+&#x27;&quot; stroke=&quot;&#x27;+sc+&#x27;&quot; stroke-width=&quot;&#x27;+sw+&#x27;&quot;&#x27;+flt+&#x27;/&gt;&#x27;;
   }
   for(i=0;i&lt;SEG;i++){
     var ac=i*SEGDEG, rad=ac*Math.PI/180, lr=60;
     var lx=cx+lr*Math.sin(rad), ly=cy-lr*Math.cos(rad);
     var rot=ac; if(ac&gt;90&amp;&amp;ac&lt;270){rot=ac+180;}
-    var navy=(i%4===2);
-    var tcol=navy?&#x27;#EAF0F5&#x27;:&#x27;#0F1420&#x27;;
-    var isJ=(i===JACKPOT_IDX);
-    var fs=isJ?7:9;
+    var jk=(i===JACKPOT_IDX);
+    var fs=jk?7:9.5;
+    /* white bold labels with a dark outline (paint-order stroke) so they
+       stay legible on every wedge color */
     svg+=&#x27;&lt;g transform=&quot;translate(&#x27;+f1(lx)+&#x27; &#x27;+f1(ly)+&#x27;) rotate(&#x27;+f1(rot)+&#x27;)&quot;&gt;&#x27;+
-         &#x27;&lt;text x=&quot;0&quot; y=&quot;3&quot; text-anchor=&quot;middle&quot; font-size=&quot;&#x27;+fs+&#x27;&quot; font-weight=&quot;800&quot; fill=&quot;&#x27;+tcol+&#x27;&quot; font-family=&quot;Arial,Helvetica,sans-serif&quot;&gt;&#x27;+LABELS[i]+&#x27;&lt;/text&gt;&lt;/g&gt;&#x27;;
+         &#x27;&lt;text x=&quot;0&quot; y=&quot;3&quot; text-anchor=&quot;middle&quot; font-size=&quot;&#x27;+fs+&#x27;&quot; font-weight=&quot;800&quot; &#x27;+
+         &#x27;fill=&quot;#FFFFFF&quot; stroke=&quot;#0F1420&quot; stroke-width=&quot;2.6&quot; paint-order=&quot;stroke&quot; &#x27;+
+         &#x27;stroke-linejoin=&quot;round&quot; font-family=&quot;Arial,Helvetica,sans-serif&quot;&gt;&#x27;+LABELS[i]+&#x27;&lt;/text&gt;&lt;/g&gt;&#x27;;
   }
   svg+=&#x27;&lt;circle cx=&quot;100&quot; cy=&quot;100&quot; r=&quot;95&quot; fill=&quot;none&quot; stroke=&quot;#FFC24B&quot; stroke-width=&quot;3&quot;/&gt;&#x27;;
   /* peg dots between segments */
   for(i=0;i&lt;SEG;i++){
     var pa=(i*SEGDEG+SEGDEG/2)*Math.PI/180;
-    svg+=&#x27;&lt;circle cx=&quot;&#x27;+f1(cx+95*Math.sin(pa))+&#x27;&quot; cy=&quot;&#x27;+f1(cy-95*Math.cos(pa))+&#x27;&quot; r=&quot;2.2&quot; fill=&quot;#0F1420&quot;/&gt;&#x27;;
+    svg+=&#x27;&lt;circle cx=&quot;&#x27;+f1(cx+95*Math.sin(pa))+&#x27;&quot; cy=&quot;&#x27;+f1(cy-95*Math.cos(pa))+&#x27;&quot; r=&quot;2.2&quot; fill=&quot;#FFE7A8&quot;/&gt;&#x27;;
   }
   svg+=&#x27;&lt;/svg&gt;&#x27;;
   document.getElementById(&#x27;wheelspin&#x27;).innerHTML=svg;
@@ -1323,7 +1397,10 @@ boot();
     -webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;}
   *{box-sizing:border-box;touch-action:manipulation;}
   #stage{position:absolute;top:0;left:0;right:0;bottom:0;
-    background:radial-gradient(120% 80% at 50% 0%,#1B2440 0%,#141A2B 55%,#0F1420 100%);
+    background:
+      radial-gradient(65% 48% at 20% 88%,rgba(184,232,54,.12),rgba(184,232,54,0) 62%),
+      radial-gradient(72% 52% at 84% 14%,rgba(255,194,75,.10),rgba(255,194,75,0) 62%),
+      radial-gradient(120% 80% at 50% 0%,#1B2440 0%,#141A2B 55%,#0F1420 100%);
     display:-webkit-box;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;
     -webkit-flex-direction:column;flex-direction:column;overflow:hidden;}
   /* header */
@@ -1357,11 +1434,11 @@ boot();
   @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
   /* multiplier readout */
   #readout{position:absolute;top:0;left:0;right:0;text-align:center;padding-top:34px;z-index:4;pointer-events:none;}
-  #mult{font-size:52px;font-weight:900;line-height:1;color:#EAF0F5;
-    text-shadow:0 3px 0 rgba(0,0,0,.35),0 0 22px rgba(184,232,54,.55);}
-  #mult.hot{color:#B8E836;}
-  #pot{margin-top:8px;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#8A93A6;}
-  #pot b{color:#6FE39C;font-size:15px;}
+  #mult{font-size:56px;font-weight:900;line-height:1;color:#EAF0F5;letter-spacing:-.5px;
+    text-shadow:0 3px 0 rgba(0,0,0,.4),0 0 26px rgba(184,232,54,.6);}
+  #mult.hot{color:#CFF56B;text-shadow:0 3px 0 rgba(0,0,0,.4),0 0 32px rgba(184,232,54,.85);}
+  #pot{margin-top:10px;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:#9AA7BD;}
+  #pot b{color:#6FE39C;font-size:16px;}
   /* bottom bar */
   #bar{display:-webkit-box;display:flex;-webkit-box-align:center;align-items:center;
     -webkit-box-pack:justify;justify-content:space-between;padding:8px 12px 4px;}
@@ -1386,29 +1463,41 @@ boot();
     -webkit-transition:.3s ease;transition:.3s ease;z-index:8;white-space:nowrap;}
   #toast.show{opacity:1;-webkit-transform:translateX(-50%) scale(1);transform:translateX(-50%) scale(1);}
   #toast.crash{color:#FFD873;text-shadow:0 3px 0 #7a4a12,0 0 18px rgba(232,70,92,.7);font-size:20px;}
-  /* overlays */
+  /* overlays — bordered ACEBET PRESENTS card (house style) */
   .ov{position:absolute;top:0;left:0;right:0;bottom:0;z-index:10;
-    background:rgba(9,12,20,.82);display:-webkit-box;display:flex;-webkit-box-orient:vertical;
+    background:rgba(9,12,20,.74);display:-webkit-box;display:flex;-webkit-box-orient:vertical;
     -webkit-box-direction:normal;-webkit-flex-direction:column;flex-direction:column;
     -webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;
-    text-align:center;padding:24px;}
+    text-align:center;padding:20px;}
   .ov.hide{display:none;}
-  .plaque{font-size:13px;color:#8A93A6;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
-  .big{font-size:30px;font-weight:900;color:#EAF0F5;line-height:1.15;margin:2px 0;}
-  .big em{font-style:normal;color:#B8E836;}
-  .sub{font-size:12px;color:#8A93A6;margin-top:8px;}
-  .cbtn{margin-top:20px;border:0;cursor:pointer;color:#0F1420;font-weight:900;font-size:18px;
-    letter-spacing:.5px;padding:16px 34px;border-radius:16px;
+  .panel{width:100%;max-width:330px;padding:22px 22px 20px;border-radius:22px;
+    background:-webkit-linear-gradient(top,rgba(31,40,66,.98),rgba(19,25,42,.98));
+    border:1px solid rgba(184,232,54,.28);
+    box-shadow:0 18px 50px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.05),0 0 40px rgba(184,232,54,.08);
+    -webkit-animation:panelIn .5s cubic-bezier(.2,1.5,.35,1);animation:panelIn .5s cubic-bezier(.2,1.5,.35,1);}
+  @-webkit-keyframes panelIn{0%{-webkit-transform:translateY(16px) scale(.94);opacity:0}100%{-webkit-transform:none;opacity:1}}
+  @keyframes panelIn{0%{transform:translateY(16px) scale(.94);opacity:0}100%{transform:none;opacity:1}}
+  .gicon{width:56px;height:56px;margin:0 auto 8px;display:block;
+    filter:drop-shadow(0 4px 14px rgba(184,232,54,.35));}
+  .kicker{font-size:10px;font-weight:900;letter-spacing:.22em;color:#FFC24B;text-transform:uppercase;margin-bottom:8px;}
+  .plaque{font-size:12px;color:#9AA7BD;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px;}
+  .big{font-size:27px;font-weight:900;color:#EAF0F5;line-height:1.12;margin:2px 0;}
+  .big em{font-style:normal;
+    background:-webkit-linear-gradient(top,#CFF56B,#6FE39C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .sub{font-size:12px;color:#AEBACE;margin-top:9px;line-height:1.4;}
+  .fine{font-size:10.5px;color:#7B879C;margin-top:12px;}
+  .cbtn{margin-top:16px;border:0;cursor:pointer;color:#0F1420;font-weight:900;font-size:18px;
+    letter-spacing:.5px;padding:15px 30px;border-radius:14px;width:100%;
     background:-webkit-linear-gradient(top,#CFF56B,#6FE39C);border-bottom:5px solid #3FA877;
-    box-shadow:0 6px 20px rgba(111,227,156,.4);-webkit-animation:pulse 1.4s ease-in-out infinite;
+    box-shadow:0 6px 20px rgba(111,227,156,.45);-webkit-animation:pulse 1.4s ease-in-out infinite;
     animation:pulse 1.4s ease-in-out infinite;}
   .cbtn:active{-webkit-transform:translateY(2px);transform:translateY(2px);}
   #cvs{position:absolute;top:0;left:0;width:100%;height:100%;z-index:9;pointer-events:none;}
   #legal{font-size:9px;line-height:1.3;color:#5C647A;text-align:center;padding:3px 14px 7px;z-index:11;position:relative;}
-  .coinburst{font-size:46px;margin-bottom:6px;color:#FFC24B;text-shadow:0 0 20px rgba(255,194,75,.8);}
-  @media (prefers-reduced-motion: reduce){.cbtn,#cash.arm,#fs u{-webkit-animation:none;animation:none;}}
+  .coinburst{font-size:46px;margin-bottom:2px;color:#FFC24B;text-shadow:0 0 20px rgba(255,194,75,.8);}
+  @media (prefers-reduced-motion: reduce){.cbtn,.panel,#cash.arm,#fs u{-webkit-animation:none;animation:none;}}
 &lt;/style&gt;
-&lt;/head&gt;&lt;body&gt;&lt;script&gt;window.mraid={_l:{},getState:function(){return &quot;default&quot;},isViewable:function(){return true},addEventListener:function(e,f){this._l[e]=f},removeEventListener:function(){},open:function(u){window.open(u,&quot;_blank&quot;)}};&lt;/script&gt;&lt;div id=&quot;stage&quot;&gt;&lt;div id=&quot;hdr&quot;&gt;&lt;div class=&quot;brand&quot;&gt;&lt;svg viewBox=&quot;0 0 48 48&quot; width=&quot;34&quot; height=&quot;34&quot; aria-hidden=&quot;true&quot;&gt;&lt;defs&gt;&lt;linearGradient id=&quot;ag&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#CFF56B&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#4FD39A&quot;/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;&lt;rect x=&quot;2&quot; y=&quot;2&quot; width=&quot;44&quot; height=&quot;44&quot; rx=&quot;12&quot; fill=&quot;#161B2B&quot;/&gt;&lt;path d=&quot;M24 9l10 26h-6.2l-1.5-4.2h-4.6L20.2 35H14L24 9z&quot; fill=&quot;url(#ag)&quot;/&gt;&lt;path d=&quot;M24 20c-2.6 2.9-5 4.2-5 7.1 0 1.8 1.4 3 3 3 .5 0 1-.1 1.4-.4-.2 1-.7 1.9-1.4 2.6h4c-.7-.7-1.2-1.6-1.4-2.6.4.3.9.4 1.4.4 1.6 0 3-1.2 3-3 0-2.9-2.4-4.2-5-7.1z&quot; fill=&quot;#0F1420&quot;/&gt;&lt;/svg&gt;&lt;b&gt;AceBet&lt;/b&gt;&lt;/div&gt;&lt;div id=&quot;scpill&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;span id=&quot;scval&quot;&gt;2.00 SC&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;boardwrap&quot;&gt;&lt;div id=&quot;frame&quot;&gt;&lt;canvas id=&quot;gamecvs&quot;&gt;&lt;/canvas&gt;&lt;div id=&quot;fs&quot;&gt;&lt;u&gt;&lt;/u&gt;LIVE ROUND&lt;/div&gt;&lt;div id=&quot;readout&quot;&gt;&lt;div id=&quot;mult&quot;&gt;1.00x&lt;/div&gt;&lt;div id=&quot;pot&quot;&gt;Potential Win &lt;b id=&quot;potv&quot;&gt;2.00 SC&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;bar&quot;&gt;&lt;div class=&quot;stat&quot;&gt;&lt;span&gt;Balance&lt;/span&gt;&lt;b id=&quot;bal&quot;&gt;2.00&lt;/b&gt;&lt;/div&gt;&lt;button id=&quot;cash&quot; class=&quot;dim&quot;&gt;CLIMBING&amp;hellip;&lt;/button&gt;&lt;div class=&quot;stat&quot;&gt;&lt;span&gt;Win&lt;/span&gt;&lt;b class=&quot;win&quot; id=&quot;won&quot;&gt;0.00&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;legal&quot;&gt;Free-to-play social casino demo. Gameplay simulated. No purchase necessary. 18+. Void where prohibited. T&amp;amp;Cs apply.&lt;/div&gt;&lt;div id=&quot;toast&quot;&gt;&lt;/div&gt;&lt;canvas id=&quot;cvs&quot;&gt;&lt;/canvas&gt;&lt;div class=&quot;ov&quot; id=&quot;intro&quot;&gt;&lt;div class=&quot;plaque&quot;&gt;Crash Cash-Out &amp;bull; 1 Tap&lt;/div&gt;&lt;div class=&quot;big&quot;&gt;Cash out before&lt;br&gt;it &lt;em&gt;crashes!&lt;/em&gt;&lt;/div&gt;&lt;div class=&quot;sub&quot;&gt;Watch the multiplier climb &amp;mdash; tap to lock your win.&lt;/div&gt;&lt;button class=&quot;cbtn&quot; id=&quot;playBtn&quot;&gt;TAP TO START&lt;/button&gt;&lt;div class=&quot;sub&quot;&gt;Demo game for entertainment only.&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;ov hide&quot; id=&quot;end&quot;&gt;&lt;div class=&quot;coinburst&quot;&gt;&amp;#9670;&lt;/div&gt;&lt;div class=&quot;plaque&quot;&gt;Bonus unlocked&lt;/div&gt;&lt;div class=&quot;big&quot;&gt;You won &lt;em&gt;10 FREE SC&lt;/em&gt;&lt;/div&gt;&lt;div class=&quot;sub&quot;&gt;Plus a 200% welcome bonus &amp;amp; 2000+ games&lt;/div&gt;&lt;button class=&quot;cbtn&quot; id=&quot;claimBtn&quot;&gt;CLAIM 10 FREE SC&lt;/button&gt;&lt;div class=&quot;sub&quot;&gt;New players only. 18+. T&amp;amp;Cs apply.&lt;/div&gt;&lt;div id=&quot;legal2&quot; style=&quot;font-size:9px;line-height:1.3;color:#5C647A;text-align:center;padding:10px 6px 0;max-width:340px;&quot;&gt;Free-to-play social casino demo. Gameplay simulated. No purchase necessary. 18+. Void where prohibited. T&amp;amp;Cs apply.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; &lt;script&gt;
+&lt;/head&gt;&lt;body&gt;&lt;script&gt;window.mraid={_l:{},getState:function(){return &quot;default&quot;},isViewable:function(){return true},addEventListener:function(e,f){this._l[e]=f},removeEventListener:function(){},open:function(u){window.open(u,&quot;_blank&quot;)}};&lt;/script&gt;&lt;div id=&quot;stage&quot;&gt;&lt;div id=&quot;hdr&quot;&gt;&lt;div class=&quot;brand&quot;&gt;&lt;svg viewBox=&quot;0 0 48 48&quot; width=&quot;34&quot; height=&quot;34&quot; aria-hidden=&quot;true&quot;&gt;&lt;defs&gt;&lt;linearGradient id=&quot;ag&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#CFF56B&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#4FD39A&quot;/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;&lt;rect x=&quot;2&quot; y=&quot;2&quot; width=&quot;44&quot; height=&quot;44&quot; rx=&quot;12&quot; fill=&quot;#161B2B&quot;/&gt;&lt;path d=&quot;M24 9l10 26h-6.2l-1.5-4.2h-4.6L20.2 35H14L24 9z&quot; fill=&quot;url(#ag)&quot;/&gt;&lt;path d=&quot;M24 20c-2.6 2.9-5 4.2-5 7.1 0 1.8 1.4 3 3 3 .5 0 1-.1 1.4-.4-.2 1-.7 1.9-1.4 2.6h4c-.7-.7-1.2-1.6-1.4-2.6.4.3.9.4 1.4.4 1.6 0 3-1.2 3-3 0-2.9-2.4-4.2-5-7.1z&quot; fill=&quot;#0F1420&quot;/&gt;&lt;/svg&gt;&lt;b&gt;AceBet&lt;/b&gt;&lt;/div&gt;&lt;div id=&quot;scpill&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;span id=&quot;scval&quot;&gt;2.00 SC&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;boardwrap&quot;&gt;&lt;div id=&quot;frame&quot;&gt;&lt;canvas id=&quot;gamecvs&quot;&gt;&lt;/canvas&gt;&lt;div id=&quot;fs&quot;&gt;&lt;u&gt;&lt;/u&gt;LIVE ROUND&lt;/div&gt;&lt;div id=&quot;readout&quot;&gt;&lt;div id=&quot;mult&quot;&gt;1.00x&lt;/div&gt;&lt;div id=&quot;pot&quot;&gt;Potential Win &lt;b id=&quot;potv&quot;&gt;2.00 SC&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;bar&quot;&gt;&lt;div class=&quot;stat&quot;&gt;&lt;span&gt;Balance&lt;/span&gt;&lt;b id=&quot;bal&quot;&gt;2.00&lt;/b&gt;&lt;/div&gt;&lt;button id=&quot;cash&quot; class=&quot;dim&quot;&gt;CLIMBING&amp;hellip;&lt;/button&gt;&lt;div class=&quot;stat&quot;&gt;&lt;span&gt;Win&lt;/span&gt;&lt;b class=&quot;win&quot; id=&quot;won&quot;&gt;0.00&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;legal&quot;&gt;Free-to-play social casino demo. Gameplay simulated. No purchase necessary. 18+. Void where prohibited. T&amp;amp;Cs apply.&lt;/div&gt;&lt;div id=&quot;toast&quot;&gt;&lt;/div&gt;&lt;canvas id=&quot;cvs&quot;&gt;&lt;/canvas&gt;&lt;div class=&quot;ov&quot; id=&quot;intro&quot;&gt;&lt;div class=&quot;panel&quot;&gt;&lt;svg class=&quot;gicon&quot; viewBox=&quot;0 0 48 48&quot; aria-hidden=&quot;true&quot;&gt;&lt;defs&gt;&lt;linearGradient id=&quot;mc&quot; x1=&quot;0&quot; y1=&quot;1&quot; x2=&quot;1&quot; y2=&quot;0&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#6FE39C&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#CFF56B&quot;/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;&lt;path d=&quot;M6 41L17 27l9 6L41 9&quot; fill=&quot;none&quot; stroke=&quot;url(#mc)&quot; stroke-width=&quot;4&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;path d=&quot;M41 9l-9 .6M41 9l-.6 9&quot; fill=&quot;none&quot; stroke=&quot;url(#mc)&quot; stroke-width=&quot;4&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;circle cx=&quot;17&quot; cy=&quot;27&quot; r=&quot;2.6&quot; fill=&quot;#FFC24B&quot;/&gt;&lt;circle cx=&quot;26&quot; cy=&quot;33&quot; r=&quot;2.6&quot; fill=&quot;#FFC24B&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;kicker&quot;&gt;ACEBET PRESENTS&lt;/div&gt;&lt;div class=&quot;plaque&quot;&gt;Crash Cash-Out&lt;/div&gt;&lt;div class=&quot;big&quot;&gt;Watch the&lt;br&gt;multiplier &lt;em&gt;climb&lt;/em&gt;&lt;/div&gt;&lt;div class=&quot;sub&quot;&gt;Cash out before it crashes.&lt;/div&gt;&lt;button class=&quot;cbtn&quot; id=&quot;playBtn&quot;&gt;TAP TO START&lt;/button&gt;&lt;div class=&quot;fine&quot;&gt;Demo game for entertainment only.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;ov hide&quot; id=&quot;end&quot;&gt;&lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;coinburst&quot;&gt;&amp;#9670;&lt;/div&gt;&lt;div class=&quot;kicker&quot;&gt;Bonus unlocked&lt;/div&gt;&lt;div class=&quot;big&quot;&gt;You won &lt;em&gt;10 FREE SC&lt;/em&gt;&lt;/div&gt;&lt;div class=&quot;sub&quot;&gt;Plus a 200% welcome bonus &amp;amp; 2000+ games&lt;/div&gt;&lt;button class=&quot;cbtn&quot; id=&quot;claimBtn&quot;&gt;CLAIM 10 FREE SC&lt;/button&gt;&lt;div class=&quot;fine&quot;&gt;New players only. 18+. T&amp;amp;Cs apply.&lt;/div&gt;&lt;div id=&quot;legal2&quot; style=&quot;font-size:9px;line-height:1.3;color:#5C647A;text-align:center;padding:10px 6px 0;&quot;&gt;Free-to-play social casino demo. Gameplay simulated. No purchase necessary. 18+. Void where prohibited. T&amp;amp;Cs apply.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; &lt;script&gt;
 /* ===== AceBet — Crash Cash-Out playable (one-tap timing/tension game) ===== */
 var STORE={ios:&#x27;https://apps.apple.com/us/app/acebet-social-casino-slots/id6761381402&#x27;,
            android:&#x27;https://play.google.com/store/apps/details?id=cc.acebet.social&#x27;};
@@ -1498,14 +1587,14 @@ function drawField(){
   for(i=0;i&lt;=steps;i++){tt=drawTo*i/steps;m=multAt(tt);X=xAt(tt,w,padL,padR);Y=yAt(m,h,padT,padB);gctx.lineTo(X,Y);}
   gctx.lineTo(xAt(drawTo,w,padL,padR),h-padB);
   gctx.closePath();
-  gctx.fillStyle=&#x27;rgba(184,232,54,.14)&#x27;;
+  gctx.fillStyle=&#x27;rgba(184,232,54,.17)&#x27;;
   gctx.fill();
 
   gctx.beginPath();
   for(i=0;i&lt;=steps;i++){tt=drawTo*i/steps;m=multAt(tt);X=xAt(tt,w,padL,padR);Y=yAt(m,h,padT,padB);
     if(i===0)gctx.moveTo(X,Y);else gctx.lineTo(X,Y);}
-  gctx.lineWidth=3.5;gctx.strokeStyle=&#x27;#B8E836&#x27;;gctx.lineJoin=&#x27;round&#x27;;
-  gctx.shadowColor=&#x27;rgba(184,232,54,.6)&#x27;;gctx.shadowBlur=10;
+  gctx.lineWidth=4;gctx.strokeStyle=&#x27;#CFF56B&#x27;;gctx.lineJoin=&#x27;round&#x27;;gctx.lineCap=&#x27;round&#x27;;
+  gctx.shadowColor=&#x27;rgba(184,232,54,.75)&#x27;;gctx.shadowBlur=14;
   gctx.stroke();
   gctx.shadowBlur=0;
 
